@@ -65,12 +65,12 @@ def handle_client(client_socket, address):
 def main():
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server.bind(('0.0.0.0', 7777))
+    server.bind(('0.0.0.0', 5555))
     server.listen(5)
     
     print("=" * 50)
     print("RELAY SERVER BASLATILDI")
-    print("Port: 7777")
+    print("Port: 5555")
     print("Kullanicilar baglanabilir!")
     print("=" * 50)
     
