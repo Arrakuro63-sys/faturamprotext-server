@@ -1,0 +1,3 @@
+# FaturamProText Relay Server Requirements
+# Standart Python kutuphaneleri kullaniliyor, ek paket gerekmiyor
+
