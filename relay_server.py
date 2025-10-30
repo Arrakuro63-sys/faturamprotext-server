@@ -5,6 +5,7 @@ Bu sunucu kullanicilar arasinda mesaj iletir
 """
 import socket
 import threading
+import os
 
 clients = {}  # {kod: socket}
 
@@ -63,14 +64,17 @@ def handle_client(client_socket, address):
         print(f"Baglanti koptu: {address}")
 
 def main():
+    # Railway'den PORT environment variable'ini al, yoksa 5555 kullan
+    port = int(os.environ.get('PORT', 5555))
+    
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    server.bind(('0.0.0.0', 5555))
+    server.bind(('0.0.0.0', port))
     server.listen(5)
     
     print("=" * 50)
     print("RELAY SERVER BASLATILDI")
-    print("Port: 5555")
+    print(f"Port: {port}")
     print("Kullanicilar baglanabilir!")
     print("=" * 50)
     
